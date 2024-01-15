@@ -7,6 +7,7 @@ This project is a template for a Next.js project with the following features:
 - [Semantic UI React](https://react.semantic-ui.com/) as the UI framework
 - Static generation of pages, with SPA
 - Can then evolve to dynamic generation and multiple pages by fully using Next.js features
+- Hygen templates to create new slices and components
 
 ## Getting Started
 
@@ -39,6 +40,34 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `src/app/page.js`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Dev
+
+### Create a new slice (redux)
+
+```
+[yarn|npm run|pnpm|bun] hygen slice new [--name slice-name]
+```
+
+Creates a new slice in `src/app/slices/` with the following files:
+
+- `src/app/slices/[slice-name]/index.js` : The entry point for all slice related exports
+- `src/app/slices/[slice-name]/slice.js` : The slice itself
+- `src/app/slices/[slice-name]/selectors.js` : The selectors
+- `src/app/slices/[slice-name]/thunks.js` : The thunks (async actions)
+
+### Create a new component
+
+```
+[yarn|npm run|pnpm|bun] hygen comp new [--name component-name]
+```
+
+Creates a new component in `src/app/components/` with the following files:
+
+- `src/app/components/[component-name]/index.js` : The entry point for all component related exports
+- `src/app/components/[component-name]/[component-name]Component.js` : The pur component itself (stateless component, no redux)
+- `src/app/components/[component-name]/[component-name]Container.js` : The container (component connected to redux)
+- `src/app/components/[component-name]/[component-name].module.css` : The component styles
 
 ## Learn More
 
